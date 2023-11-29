@@ -7,6 +7,7 @@ SUBSYSTEM_DEF(gamemode)
 	flags = SS_BACKGROUND | SS_KEEP_TIMING
 	wait = 2 SECONDS
 
+	var/storyteller_voted = FALSE
 	/// List of our event tracks for fast access during for loops.
 	var/list/event_tracks = EVENT_TRACKS
 	/// Our storyteller. He progresses our trackboards and picks out events
@@ -110,6 +111,7 @@ SUBSYSTEM_DEF(gamemode)
 
 	var/list/control = list() //list of all datum/round_event_control. Used for selecting events based on weight and occurrences.
 	var/list/running = list() //list of all existing /datum/round_event
+	var/list/round_end_data = list() //list of all reports that need to add round end reports
 	var/list/currentrun = list()
 
 	/// List of all uncategorized events, because they were wizard or holiday events
@@ -139,6 +141,13 @@ SUBSYSTEM_DEF(gamemode)
 	var/med_crew = 0
 
 	var/wizardmode = FALSE
+
+	var/datum/round_event_control/current_roundstart_event
+	var/list/last_round_events = list()
+	var/ran_roundstart = FALSE
+	var/list/triggered_round_events = list()
+
+	var/total_valid_antags = 0
 
 /datum/controller/subsystem/gamemode/Initialize(time, zlevel)
 	// Populate event pools
@@ -415,17 +424,16 @@ SUBSYSTEM_DEF(gamemode)
 /datum/controller/subsystem/gamemode/proc/resetFrequency()
 	event_frequency_multiplier = 1
 
-/* /client/proc/forceEvent()
-	set name = "Trigger Event"
-	set category = "Admin.Events"
 
+/client/proc/forceGamemode()
+	set name = "Open Gamemode Panel"
+	set category = "Admin.Events"
 	if(!holder ||!check_rights(R_FUN))
 		return
+	holder.forceGamemode(usr)
 
-	holder.forceEvent(usr) */
-
-/* /datum/admins/forceEvent(mob/user)
-	SSgamemode.event_panel(user) */
+/datum/admins/proc/forceGamemode(mob/user)
+	SSgamemode.admin_panel(user)
 
 
 //////////////
@@ -755,14 +763,14 @@ SUBSYSTEM_DEF(gamemode)
 		to_chat(world, span_notice("[storyboy.desc]"))
 	return choices
 
+/datum/controller/subsystem/gamemode/proc/storyteller_desc(storyteller_name)
+	for(var/storyteller_type in storytellers)
+		var/datum/storyteller/storyboy = storytellers[storyteller_type]
+		if(storyboy.name != storyteller_name)
+			continue
+		return storyboy.desc
+
 /datum/controller/subsystem/gamemode/proc/storyteller_vote_result(winner_name)
-	/// Find the winner
-	/// Hijacking the proc because we don't have a vote right now..
-	var/datum/storyteller/storyteller = pick(storytellers)
-	message_admins("We picked [storyteller]")
-	voted_storyteller = storyteller
-	if(storyteller)
-		return
 	for(var/storyteller_type in storytellers)
 		var/datum/storyteller/storyboy = storytellers[storyteller_type]
 		if(storyboy.name == winner_name)
@@ -770,12 +778,6 @@ SUBSYSTEM_DEF(gamemode)
 			break
 
 /datum/controller/subsystem/gamemode/proc/init_storyteller()
-		/// Hijacking the proc because we don't have a vote right now..
-	var/datum/storyteller/storyteller_pick = pick(storytellers)
-	message_admins("We picked [storyteller_pick] for this rounds storyteller, randomly.")
-	voted_storyteller = storyteller_pick
-	if(storyteller) // If this is true, then an admin bussed one, don't overwrite it
-		return
 	set_storyteller(voted_storyteller)
 
 /datum/controller/subsystem/gamemode/proc/set_storyteller(passed_type)

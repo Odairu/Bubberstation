@@ -280,6 +280,8 @@ GLOBAL_REAL(Master, /datum/controller/master)
 		world.sleep_offline = FALSE
 	initializations_finished_with_no_players_logged_in = initialized_tod < REALTIMEOFDAY - 10
 
+	SSvote.initiate_vote(/datum/vote/storyteller, "pick round storyteller", forced = TRUE) //bubber edit adding a story teller vote on round start
+
 /**
  * Initialize a given subsystem and handle the results.
  *
