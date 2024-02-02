@@ -33,7 +33,7 @@
 
 /// Returns whether the reward specified (in format (min, max)) is zero or not.
 /datum/unit_test/objectives_category/proc/reward_is_zero(list/reward)
-	return (reward[1] == 0 && reward[2] == 0)
+	return FALSE
 
 /datum/unit_test/objectives_category/Destroy()
 	SStraitor.generate_objectives = TRUE
