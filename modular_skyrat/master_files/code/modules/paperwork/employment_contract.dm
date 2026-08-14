@@ -27,7 +27,7 @@
 	<br>WHEREAS, <i><u>employer</u></i> agrees to provide payment to the <i><u>employee</u></i> to the best of its ability depending on local circumstance and in a timely fashion, \
 	in exchange for the completion of work duties described by the individual job postings to which the <i><u>employee</u></i> is assigned.\
 	<br><br>NOW THEREFORE in consideration of the mutual covenants herein contained, and other good and valuable consideration, the parties hereto mutually agree as follows:\
-	<br><br>In exchange for a fixed wage, the <i><u>employee</u></i> agrees to work for the <i><u>employer</u></i>, for a standard contract of no less than four years.\
+	<br><br>In exchange for a dynamic wage, the <i><u>employee</u></i> agrees to work for the <i><u>employer</u></i>, for a standard contract of no less than four years.\
 	<br><br>The employee agrees to maintain confidentiality of all <i><u>employer</u></i> trade secrets, locations of stations or other strategically valuable items, \
 	value or condition of assets, existence of pending lawsuits, or any other material that may impact the profit and health of the <i><u>employer</u></i> as a whole.\
 	<br><br>Additionally, the <i><u>employee</u></i> allows the <i><u>employer</u></i> to access their medical, security and employment records for use in public relations, marketing, \
@@ -42,8 +42,8 @@
 	<br>Finally, the <i><u>employee</u></i> understands that the <i><u>employer</u></i> is not bound by the same contract principles as them and may terminate the contract at any time, \
 	for any reason, and without warning if need be. The <i><u>employee</u></i> agrees to approach any and all employment disputes through the assigned Head of Personnel \
 	or Central Command Representative aboard the station at the time of the dispute. An <i><u>employer</u></i> contracted lawyer may be present for the dispute \
-	if requested by the <i><u>employee</u></i>. Wages are non-negotiable and no individual, including the Captain, on the station has the option to raise pay, \
-	so the <i><u>employee</u></i> agrees to handle payment disputes through the proper channels or risk breach of contract.\
+	if requested by the <i><u>employee</u></i>. Wages are subject to the discretion of both the Head of Personnel, and the <i><u>employee</u></i>'s assigned department head.' \
+	The <i><u>employee</u></i> agrees to handle payment disputes through the proper channels or risk breach of contract.\
 	<br><br>Signed, \
 	<br><span style=\"color:black;font-family:'Segoe Script';\"><p><b>[employee_name]</b></p></span>\
 	<br><br>\
